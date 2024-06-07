@@ -20,7 +20,8 @@ async def root():
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
 
-    driver = webdriver.Remote(command_executor='http://172.17.0.14:4444/wd/hub', options=chrome_options)
+    driver = webdriver.Remote(command_executor='standalone-chrome-production-003d.up.railway.app',
+                              options=chrome_options)
 
     driver.get("http://bianca.com")
 
