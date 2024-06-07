@@ -5,7 +5,7 @@ from fastapi import FastAPI
 app = FastAPI()
 
 
-@app.get("/")
+@app.get("/bianca")
 async def root():
     chrome_options = Options()
     chrome_options.add_argument("--headless")
