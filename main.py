@@ -5,6 +5,8 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 
+from webdriver_manager.chrome import ChromeDriverManager
+
 from fastapi import FastAPI
 
 app = FastAPI()
@@ -18,7 +20,7 @@ async def root():
     chrome_options.add_argument("--disable-dev-shm-usage")
 
     # Download the webdriver
-    service = Service("chromedriver/chromedriver")
+    service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=chrome_options)
 
     driver.get("http://bianca.com")
