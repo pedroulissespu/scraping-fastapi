@@ -15,7 +15,7 @@ chrome_options.add_argument("--headless")
 chrome_options.add_argument("--no-sandbox")
 chrome_options.add_argument("--disable-dev-shm-usage")
 
-service = Service("chromedriver/chromedriver")
+service = Service("/app/.apt/opt/google/chrome/google-chrome")
 driver = webdriver.Chrome(service=service, options=chrome_options)
 
 driver.get("http://bianca.com")
