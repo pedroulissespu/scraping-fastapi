@@ -40,19 +40,15 @@ async def root():
     for item in items:
         list_items.append(item.text)
 
-    data = [
-        {'title': title},
-        {'cookies': cookies},
-        {'text_html': text},
-        {'inner_html': inner_html},
-        {'is_selected': is_selected},
-        {'css_value': css_value},
-        {'attributes_rows': attributes_rows},
-        {'link': link},
-        {'list_items': list_items}
-    ]
-
     driver.quit()
-    return {data}
+    return {'title': title,
+            'cookies': cookies,
+            'text_html': text,
+            'inner_html': inner_html,
+            'is_selected': is_selected,
+            'css_value': css_value,
+            'attributes_rows': attributes_rows,
+            'link': link,
+            'list_items': list_items}
 
     
