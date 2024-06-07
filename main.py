@@ -2,6 +2,7 @@ from typing import Union
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common import desired_capabilities
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 
@@ -18,9 +19,9 @@ async def root():
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
-
-    service = Service("http://172.17.0.14:4444")
-    driver = webdriver.Chrome(service=service, options=chrome_options)
+    
+    driver = webdriver.Remote(command_executor='http://172.17.0.14:4444/wd/hub', options=chrome_options,
+                              desired_capabilities=desired_capabilities)
 
     driver.get("http://bianca.com")
 
