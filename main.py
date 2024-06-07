@@ -19,7 +19,7 @@ async def root():
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
 
-    service = Service(ChromeDriverManager().install())
+    service = Service("/usr/bin/google-chrome")
     driver = webdriver.Chrome(service=service, options=chrome_options)
 
     driver.get("http://bianca.com")
